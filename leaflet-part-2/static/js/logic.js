@@ -2,7 +2,7 @@
 let globeContainer = document.getElementById('globe-container');
 
 // Create the globe
-let globe = new Cesium.Viewer(globeContainer, {
+let viewer = new Cesium.Viewer(globeContainer, {
   imageryProvider: new Cesium.OpenStreetMapImageryProvider({
     url: 'https://a.tile.openstreetmap.org/'
   }),
@@ -25,16 +25,16 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     // Determine the marker radius based on the magnitude
     let radius = quake.properties.mag * 4.5;
 
-    // Create a sphere to represent the earthquake
-    let entity = globe.entities.add({
-        position: Cesium.Cartesian3.fromDegrees(quake.geometry.coordinates[0], quake.geometry.coordinates[1], quake.properties.mag * 1000),
-        point: {
-          pixelSize: radius * 2, // Convert radius to pixel size
-          color: getMagnitudeColor(quake.properties.mag),
-          outlineColor: new Cesium.Color(0, 0, 0, 1),
-          outlineWidth: 2
-        }
-      });
+    // Create a point entity to represent the earthquake
+    let entity = viewer.entities.add({
+      position: Cesium.Cartesian3.fromDegrees(quake.geometry.coordinates[0], quake.geometry.coordinates[1], quake.properties.mag * 1000),
+      point: {
+        pixelSize: radius * 2, // Convert radius to pixel size
+        color: getMagnitudeColor(quake.properties.mag),
+        outlineColor: new Cesium.Color(0, 0, 0, 1),
+        outlineWidth: 2
+      }
+    });
 
     // Add the entity to the earthquakeMarkers array
     earthquakeMarkers.push(entity);

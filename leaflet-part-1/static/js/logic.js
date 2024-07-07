@@ -10,14 +10,14 @@ function createMap(earthquakeLayer) {
     });
 
     let leaf = L.map("map", {
-        center: [39.74, -104.99],
+        center: [39.74170615162854, -105.07071036441819],
         zoom: 4.5,
         layers: [myTile, earthquakeLayer]
     });
 
     // Layer Control //
     L.control.layers({
-        "The Earth": myTile,
+//        "The Earth": myTile,
         "Quakes": earthquakeLayer
     }, {}, {
         collapsed: false

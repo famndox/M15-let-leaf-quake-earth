@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Earthquake Globe</title>
+  <link rel="stylesheet" href="https://unpkg.com/cesium@1.119.0/Build/Cesium/Widgets/widgets.css">
   <style>
-    #globe-container {
-      width: 800px;
-      height: 600px;
-      border: 1px solid black;
+    html, body, #globe-container {
+        width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
     }
-  </style>
+</style>
+
 </head>
 <body>
-  <div id="globe-container"></div>
+  <div id="globe-container" class="fullSize"></div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://unpkg.com/cesium@1.20.0/Build/Cesium/Cesium.js"></script>
+  <script src="https://unpkg.com/cesium@1.119.0/Build/Cesium/Cesium.js""></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script type="text/javascript" src="static/js/logic.js"></script>
 </body>

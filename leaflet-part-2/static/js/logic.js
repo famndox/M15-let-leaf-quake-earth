@@ -3,12 +3,7 @@ let globeContainer = document.getElementById('globe-container');
 
 // Create the globe
 let globe = new Cesium.Viewer(globeContainer, {
-  imageryProvider: new Cesium.OpenStreetMapImageryProvider({
-    url: 'https://a.tile.openstreetmap.org/'
-  }),
-  baseLayerPicker: false,
-  navigationInstructionsContainer: globeContainer,
-  creditContainer: globeContainer
+  baseLayerPicker: false
 });
 
 // Load the earthquake data
@@ -55,3 +50,6 @@ function getMagnitudeColor(magnitude) {
     return new Cesium.Color(1, 0, 0, 0.5);
   }
 }
+
+
+

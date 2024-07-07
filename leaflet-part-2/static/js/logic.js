@@ -3,7 +3,7 @@ let globeContainer = document.getElementById('globe-container');
 
 // Create the globe
 let globe = new Cesium.Viewer(globeContainer, {
-  baseLayerPicker: false
+//  baseLayerPicker: false
 });
 
 // Load the earthquake data

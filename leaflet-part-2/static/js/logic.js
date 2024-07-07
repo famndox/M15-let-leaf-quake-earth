@@ -3,7 +3,7 @@ let globeContainer = document.getElementById('globe-container');
 
 // Create the globe
 let globe = new Cesium.Viewer(globeContainer, {
-//  baseLayerPicker: false
+ // baseLayerPicker: false
 });
 
 // Load the earthquake data
@@ -53,3 +53,56 @@ function getMagnitudeColor(magnitude) {
 
 
 
+
+// Load the tectonic plate boundaries from the JSON URL
+d3.json('https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json')
+  .then(data => {
+
+    // Create an array to hold the tectonic plate boundaries
+    let plateBoundaries = data.features;
+
+    // Create an array of colors
+    let colors = [
+      Cesium.Color.RED,
+      Cesium.Color.BLUE,
+      Cesium.Color.GREEN,
+      Cesium.Color.YELLOW,
+      Cesium.Color.CYAN,
+      Cesium.Color.MAGENTA,
+      Cesium.Color.BLACK
+    ];
+
+    // Loop through each feature
+    for (let i = 0; i < plateBoundaries.length; i++) {
+      let coordinates = plateBoundaries[i].geometry.coordinates;
+      let featureCoordinates = [];
+
+      // Loop through each coordinate
+      for (let j = 0; j < coordinates.length; j++) {
+        let longitude = coordinates[j][0]; // Assuming coordinates is a 2D array
+        let latitude = coordinates[j][1]; // Assuming coordinates is a 2D array
+
+        let cartesian = Cesium.Cartesian3.fromDegrees(longitude, latitude);
+        featureCoordinates.push(cartesian);
+      }
+
+      // Create an entity for the feature
+
+      let entity = globe.entities.add({
+        name: `Feature ${i}`,
+        polyline: {
+          positions: featureCoordinates,
+          width: 10.0,
+          material: new Cesium.PolylineGlowMaterialProperty({
+            color: Cesium.Color.DEEPSKYBLUE,
+            glowPower: 0.25,
+          }),
+        },
+      });
+
+
+    }
+
+    // Zoom to the entities
+    globe.flyTo(globe.entities);
+  });

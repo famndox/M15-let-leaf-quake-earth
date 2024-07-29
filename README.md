@@ -3,7 +3,7 @@
 
 ![Map Image](Images/sideBYside.png "Teaser")
 
-I gotta say that I'm enjoying javascript. VS Code's autocomplete certainly made quick work of this, but I plan to clean this up as a portfolio piece (more loops, better dashboard, etc). 
+VS Code's autocomplete certainly made quick work of this, but I plan to clean this up as a portfolio piece (more loops, better dashboard, etc). 
 
 Part 1: Create the Earthquake Visualization >>> <a href='https://famndox.github.io/M15-let-leaf-quake-earth/leaflet-part-1/index.html'>Click Here!!!</a><br>
 -

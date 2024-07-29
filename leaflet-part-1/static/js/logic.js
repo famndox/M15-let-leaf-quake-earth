@@ -1,8 +1,8 @@
+//      UNDER     //
 //
+//  CONSTRUCTION  //
 //
-//
-//
-// Modularity is King //
+// Does the Thing //
 
 function createMap(earthquakeLayer) {
     let myTile = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -28,11 +28,11 @@ function createMap(earthquakeLayer) {
     legend.onAdd = function(map) {
         let div = L.DomUtil.create('div', 'legend');
         div.innerHTML += '<h4>Magnitude</h4>';
-        div.innerHTML += '<ul style="background: #008000"></i><span>0-1</span><br>';
-        div.innerHTML += '<ul style="background: #0000FF"></i><span>1-2</span><br>';
-        div.innerHTML += '<ul style="background: #36013F"></i><span>2-3</span><br>';
-        div.innerHTML += '<ul style="background: #FFA500"></i><span>3-4</span><br>';
-        div.innerHTML += '<ul style="background: #FF0000"></i><span>4+</span><br>';
+        div.innerHTML += '<ul style="background: #81de87"></i><span>0-1</span><br>';
+        div.innerHTML += '<ul style="background: #6b872c"></i><span>1-2</span><br>';
+        div.innerHTML += '<ul style="background: #e7b416"></i><span>2-3</span><br>';
+        div.innerHTML += '<ul style="background: #af6222"></i><span>3-4</span><br>';
+        div.innerHTML += '<ul style="background: #661919"></i><span>4+</span><br>';
         return div;
     };
     legend.addTo(leaf);
@@ -71,15 +71,15 @@ function createMarkers(response) {
 // Function to determine the marker color based on the magnitude
 function getMagnitudeColor(magnitude) {
     if (magnitude < 1) {
-        return '#008000';
+        return '#81de87';
     } else if (magnitude < 2) {
-        return '#0000FF';
+        return '#6b872c';
     } else if (magnitude < 3) {
-        return '#36013F';
+        return '#e7b416';
     } else if (magnitude < 4) {
-        return '#FFA500';
+        return '#af6222';
     } else {
-        return '#FF0000';
+        return '#661919';
     }
 }
 

@@ -1,5 +1,4 @@
 # M15-let-leaf-quake-earth
-🚧***Turning this in because I'm tired of it being late***🚧
 
 ![Map Image](Images/sideBYside.png "Teaser")
 
